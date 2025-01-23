@@ -1,0 +1,22 @@
+[gd_resource type="SphereMesh" load_steps=6 format=3 uid="uid://u4im6tj6s1ps"]
+
+[ext_resource type="Shader" path="res://resources/shaders/bubble_shader_2.gdshader" id="1_8lifp"]
+[ext_resource type="Texture2D" uid="uid://i2a3pdwwhn5q" path="res://assets/textures/ColoredNoise.png" id="2_7udkj"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_shp53"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s3r6p"]
+seamless = true
+noise = SubResource("FastNoiseLite_shp53")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_edvro"]
+render_priority = 0
+shader = ExtResource("1_8lifp")
+shader_parameter/smoothness = 0.05
+shader_parameter/animation_speed = 0.02
+shader_parameter/bubble_color = Color(1, 0, 0, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_s3r6p")
+shader_parameter/color = ExtResource("2_7udkj")
+
+[resource]
+material = SubResource("ShaderMaterial_edvro")
