@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnc77oj2h2ipx"]
+
+[ext_resource type="SphereMesh" uid="uid://bbhm47tuqb2uq" path="res://resources/meshes/bubble_mesh.tres" id="1_6q3w0"]
+
+[node name="Bubble" type="Node3D"]
+
+[node name="BubbleMesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_6q3w0")
