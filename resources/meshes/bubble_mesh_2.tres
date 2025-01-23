@@ -1,4 +1,4 @@
-[gd_resource type="SphereMesh" load_steps=6 format=3 uid="uid://u4im6tj6s1ps"]
+[gd_resource type="SphereMesh" load_steps=6 format=3 uid="uid://d050wpoyyu1x4"]
 
 [ext_resource type="Shader" path="res://resources/shaders/bubble_shader_2.gdshader" id="1_8lifp"]
 [ext_resource type="Texture2D" uid="uid://i2a3pdwwhn5q" path="res://assets/textures/ColoredNoise.png" id="2_7udkj"]

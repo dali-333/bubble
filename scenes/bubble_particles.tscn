@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://dig8shpcybw2e"]
+
+[ext_resource type="SphereMesh" uid="uid://bbhm47tuqb2uq" path="res://resources/meshes/bubble_mesh.tres" id="1_3ufcj"]
+[ext_resource type="Texture2D" uid="uid://b784vyinkl0ls" path="res://assets/hdri/fireplace_4k.hdr" id="2_qlek7"]
+[ext_resource type="PackedScene" uid="uid://cnc77oj2h2ipx" path="res://scenes/bubble.tscn" id="3_rr6qb"]
+
+[sub_resource type="Curve" id="Curve_5dv0m"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wv71d"]
+panorama = ExtResource("2_qlek7")
+
+[sub_resource type="Sky" id="Sky_57mgt"]
+sky_material = SubResource("PanoramaSkyMaterial_wv71d")
+
+[sub_resource type="Environment" id="Environment_qp1pq"]
+background_mode = 2
+sky = SubResource("Sky_57mgt")
+
+[node name="Paticles" type="Node3D"]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+amount = 100
+lifetime = 5.0
+preprocess = 5.0
+randomness = 0.5
+lifetime_randomness = 0.5
+mesh = ExtResource("1_3ufcj")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 50.0
+emission_ring_inner_radius = 0.0
+direction = Vector3(0, 0, 0)
+spread = 105.0
+flatness = 0.02
+gravity = Vector3(0, 4, 0)
+scale_amount_curve = SubResource("Curve_5dv0m")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qp1pq")
+
+[node name="Bubble" parent="." instance=ExtResource("3_rr6qb")]
